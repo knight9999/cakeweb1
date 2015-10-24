@@ -1,7 +1,8 @@
 {
     "name": "cakeweb1-app",
     "require": {
-        "cakephp/cakephp": "2.6.9"
+        "cakephp/cakephp": "2.6.9",
+	"cakedc/migrations": "2.4.0"
     },
     "config": {
         "vendor-dir": "Vendor/"
