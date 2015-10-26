@@ -17,9 +17,12 @@ class Books extends CakeMigration {
 		'up' => array(
 		  'create_table' => array(
 		    'books' => array(
-		      'id' => array('type' => 'integer', 'null' => false, 'key' => 'primary'),
+		      'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'key' => 'primary'),
 		      'name' => array('type'=>'string','null' => false),
-                      'content' => array('type'=>'string','null' => false)		
+                      'body' => array('type'=>'text','null' => false),
+                      'indexes' => array(
+                        'PRIMARY' => array('column' => 'id' , 'unique' => 1),
+                      )
 		    )
 		  )
 		),
