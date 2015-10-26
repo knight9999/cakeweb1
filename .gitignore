@@ -1,3 +1,8 @@
 composer.lock
 /Vendor
 /Plugin/Migrations
+/Config/email.php
+/Config/database.php
+/Config/Schema/schema.php
+/tmp
+
