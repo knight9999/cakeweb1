@@ -18,6 +18,7 @@ tmpディレクトリを作成してください。権限は、Apacheユーザ�
     1445873987_insert_records_for_books.php
 
 の２つです。
+
 　まずは、次を実行して、データベースを初期状態にしてください。
 
     $ Console/cake Migrations.migration run reset
@@ -43,6 +44,7 @@ Webサーバーを立ち上げて、/booksを確認すると、１レコード�
     $ Console/cake Migrations.migration run down
 
 で出来ます。
+
 　初期状態に戻すのは
 
     $ Console/cake Migrations.migration run reset
