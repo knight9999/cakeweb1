@@ -2,12 +2,13 @@
 
 ## インストール方法
 
-チェックアウトしたら、Config以下にemail.phpとdatabase.phpを作成してください。(email.php.default,database.php.defaultをそれぞれコピーして編集してください）
-Composerを利用して、必要なファイル(CakePHPとCakedc/Migrations)をダウンロードしてください。
+チェックアウトしたら、Configディレクトリ以下にemail.phpとdatabase.phpを作成してください。(email.php.default,database.php.defaultをそれぞれコピーして編集してください）
 
-    composer install
+その後、Composerを利用して、以下のコマンドで必要なファイル(CakePHPとCakedc/Migrations)をダウンロードしてください。
 
-tmpディレクトリを作成してください。
+    $ composer install
+
+tmpディレクトリを作成してください。権限は、Apacheユーザーおよびコマンドラインを実行するユーザーで書き込めるようにしてください。
 
 ## 使い方
 
@@ -35,7 +36,7 @@ tmpディレクトリを作成してください。
 
 2つ目のマイグレーションファイルが適用されて、booksテーブルにレコードが1つ作成されます。
 
-Webサーバーを立ち上げて、/booksを確認すると、１レコードが確認できます。
+Webサーバーを立ち上げて、/booksを確認すると、１レコードが確認できます。ただし、ここで後で述べるように、tmpディレクトリの権限問題によるエラーが発生します。詳しくは、セクション3.を確認してください。
 
 　2つ目のマイグレーションファイルをキャンセルする場合は
 
