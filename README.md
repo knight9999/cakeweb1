@@ -22,15 +22,21 @@ cakedc Migrationsを使うと、コマンドラインからtmpディレクトリ
 3. パーミッションを設定して、干渉しないようにする。
 幾つか方法がありますが、ここでは以下の3つを設定することで問題を回避します。
 
-### Apacheユーザーのグループをコマンドラインを実行するユーザーと同じグループにする。
+3-1. Apacheユーザーのグループをコマンドラインを実行するユーザーと同じグループにする。
 
 httpd.confを編集して、グループを設定します。
 
     Group myaccount
 
-### Apacheの設定
+3-2. Apacheの設定
  
 umaskを002にしてください。
+Macの場合は、/System/Library/LaunchDaemons/org.apache.httpd.plistのdictセクションに
+
+    <key>Umask</key>
+    <integer>002</integer>
+
+を追加して、Apacheを再起動してください。
 CentOS7であれば、/usr/lib/systemd/system/httpd.service に
 
     [Service]
@@ -44,7 +50,7 @@ CentOS6であれば、/etc/sysconfig/httpdに
 を追加してください。
 こうすることにより、tmp以下にapacheがディレクトリを作成した場合、その権限が0775 (02775)になります。
 
-### tmpディレクトリの権限設定
+3-3. tmpディレクトリの権限設定
 
 以下の手順により、tmpディレクトリを空にした状態で、sgidを設定してください。
 
@@ -52,8 +58,7 @@ CentOS6であれば、/etc/sysconfig/httpdに
     $ sudo chmod g+w tmp
     $ sudo chmod g+s tmp
     
-こうすることにより、tmp以下にapacheがディレクトリを作成した場合も、グループユーザーは自分(=git cloneしたユーザー)
-のままになります。
+こうすることにより、tmp以下にapacheがディレクトリを作成した場合も、グループユーザーは自分のグループ(=git cloneしたユーザーのグループ)のままになります。
 
 
 
