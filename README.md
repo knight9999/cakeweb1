@@ -27,6 +27,11 @@ CentOS7であれば、/usr/lib/systemd/system/httpd.service に
     UMask=0002
 
 のように記述して、Apacheを再起動してください。
+CentOS6であれば、/etc/sysconfig/httpdに
+
+    umask 002
+
+を追加してください。
 こうすることにより、tmp以下にapacheがディレクトリを作成した場合、その権限が0775 (02775)になります。
 
 
