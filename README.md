@@ -2,6 +2,55 @@
 
 ## インストール方法
 
+チェックアウトしたら、Config以下にemail.phpとdatabase.phpを作成してください。(email.php.default,database.php.defaultをそれぞれコピーして編集してください）
+Composerを利用して、必要なファイル(CakePHPとCakedc/Migrations)をダウンロードしてください。
+
+    composer install
+
+tmpディレクトリを作成してください。
+
+## 使い方
+
+プロジェクトには、すでに２つのマイグレーションファイルが用意されています。Config/Migration以下の
+
+    1445792805_books.php
+    1445873987_insert_records_for_books.php
+
+の２つです。
+　まずは、次を実行して、データベースを初期状態にしてください。
+
+    $ Console/cake Migrations.migration run reset
+
+これを実行すると、schema_migrationsテーブルが作成されます。これは、最初の１回のみです。
+
+　次に、最初のマイグレーションファイルを実行します。
+
+    $ Console/cake Migrations.migration run up
+
+1つ目のマイグレーションファイルが適用されて、booksテーブルが作成されます。
+
+　さらに、次のマイグレーションファイルを実行します。
+
+    $ Console/cake Migrations.migration run up
+
+2つ目のマイグレーションファイルが適用されて、booksテーブルにレコードが1つ作成されます。
+
+Webサーバーを立ち上げて、/booksを確認すると、１レコードが確認できます。
+
+　2つ目のマイグレーションファイルをキャンセルする場合は
+
+    $ Console/cake Migrations.migration run down
+
+で出来ます。
+　初期状態に戻すのは
+
+    $ Console/cake Migrations.migration run reset
+
+すべてのマイグレーションを適用するのは
+
+    $ Console/cake Migrations.migration run all
+
+で出来ます。
 
 ## ディレクトリの権限の問題について
 
@@ -60,5 +109,12 @@ CentOS6であれば、/etc/sysconfig/httpdに
 
 こうすることにより、tmp以下にapacheがディレクトリを作成した場合も、グループユーザーは自分のグループ(=git cloneしたユーザーのグループ)のままになります。
 
+## 参考サイト
+
+ドキュメント
+https://github.com/CakeDC/migrations/tree/master/Docs/Documentation
+
+チュートリアル
+https://github.com/CakeDC/migrations/blob/master/Docs/Tutorials/Quick-Start.md
 
 
