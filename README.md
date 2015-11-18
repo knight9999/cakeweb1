@@ -132,14 +132,14 @@ CentOS6であれば、/etc/sysconfig/httpdに
 ### Auto-Migration Files
 
   1. もしまだやっていなければ、最初のマイグレーションを行います。  
-    $ Console/cake Migrations.migration run reset
+        $ Console/cake Migrations.migration run reset
   2. 次に、現在のデータベースの状況に対応したSchemaファイルを作成します。  
-    $ cake schema generate -f  
+        $ cake schema generate -f  
 （スキーマファイルの作り方を尋ねられたら、既存のスキーマファイルを上書きするのであればOverwriteを選択します。Snapshotでも問題ないかは未確認）  
 　オプションのｆは、モデルがないテーブルについてもスキーマを作成するかです。  
   3. この状態で、SQLを使って、テーブルの追加、カラムの変更などを行います。
   4. その後、  
-    $ Console/cake Migrations.migration generate  
+        $ Console/cake Migrations.migration generate  
 で、新しいマイグレーションファイルを作成します。これで、マイグレーションファイルが出来ました。この新しいマイグレーションファイルに合わせて、スキーマファイルを更新するか尋ねられるので、更新しない(Quit)か、上書き(Overwrite)してください。  
 
 ### Manually Creating Migration
