@@ -140,9 +140,10 @@ CentOS6であれば、/etc/sysconfig/httpdに
         $ cake schema generate -f  
       
 （スキーマファイルの作り方を尋ねられたら、既存のスキーマファイルを上書きするのであればOverwriteを選択します。Snapshotでも問題ないかは未確認）  
-  3. hoge
 　オプションのｆは、モデルがないテーブルについてもスキーマを作成するかです。  
+
   3. この状態で、SQLを使って、テーブルの追加、カラムの変更などを行います。
+
   4. その後、  
     
         $ Console/cake Migrations.migration generate  
