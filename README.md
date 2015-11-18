@@ -140,7 +140,7 @@ CentOS6であれば、/etc/sysconfig/httpdに
         $ cake schema generate -f  
       
     （スキーマファイルの作り方を尋ねられたら、既存のスキーマファイルを上書きするのであればOverwriteを選択します。Snapshotでも問題ないかは未確認）  
-    オプションのｆは、モデルがないテーブルについてもスキーマを作成するかです。  
+    オプションの"-ｆ"は、モデルがないテーブルについてもスキーマを作成するかです。  
     
   3. この状態で、SQLを使って、テーブルの追加、カラムの変更などを行います。
     
@@ -148,9 +148,15 @@ CentOS6であれば、/etc/sysconfig/httpdに
         
         $ Console/cake Migrations.migration generate  
     
-で、新しいマイグレーションファイルを作成します。これで、マイグレーションファイルが出来ました。この新しいマイグレーションファイルに合わせて、スキーマファイルを更新するか尋ねられるので、更新しない(Quit)か、上書き(Overwrite)してください。  
+    で、新しいマイグレーションファイルを作成します。
+    
+        Do you want compare the schema.php file to the database? (y/n)
+    
+    と尋ねられたらyと答えて下さい。これで、マイグレーションファイルが出来ました。この新しいマイグレーションファイルに合わせて、スキーマファイルを更新するか尋ねられるので、更新しない(Quit)か、上書き(Overwrite)してください。  
 
 ### Manually Creating Migration
+
+
 
 
 ## 参考サイト
