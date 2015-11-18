@@ -153,11 +153,67 @@ CentOS6であれば、/etc/sysconfig/httpdに
         Do you want compare the schema.php file to the database? (y/n)
     
     と尋ねられたらyと答えて下さい。これで、マイグレーションファイルが出来ました。この新しいマイグレーションファイルに合わせて、スキーマファイルを更新するか尋ねられるので、更新しない(Quit)か、上書き(Overwrite)してください。  
-
+    保存時の名前は適当につけてください。ファイル名は、入力した名前の前に、現在のタイムスタンプが付きます。
+    
 ### Manually Creating Migration
 
+  1. もしまだやっていねければ、最初のマイグレーションを行います。  
+    
+        $ Console/cake Migrations.migration run reset
+    
+  2. 空のマイグレーションファイルを作成します。
+    
+        $ Console/cake Migrations.migration generate  
+    
+    ここで
+    
+        Do you want compare the schema.php file to the database? (y/n)
+    
+    と尋ねられたらnと答えて下さい。これで、マイグレーションファイルが出来ました。
 
+  3. マイグレーションファイルを編集してください。たとえば、テーブルを作るのであれば、
+      
+        'create_table' => array(
+            'categories' => array(
+                'id' => array(
+                'type'    =>'string',
+                'null'    => false,
+                'default' => null,
+                'length'  => 36,
+                'key'     => 'primary'
+            ),
+            'name' => array(
+                'type'    =>'string',
+                'null'    => false,
+                'default' => null
+            ),
+            'indexes' => array(
+                'PRIMARY' => array(
+                    'column' => 'id',
+                    'unique' => 1
+                )
+            )
+        )
+    );
+    
+    となります。その他の記述法については、
+    https://github.com/CakeDC/migrations/blob/master/Docs/Documentation/Migrations.md
+    を参考にしてください。
+    保存時の名前は適当につけてください。ファイル名は、入力した名前の前に、現在のタイムスタンプが付きます。
+    
+  4. マイグレーションファイルが出来たら、マイグレーションファイルを実行します。
+    
+        $ Console/cake Migrations.migration run
+    
+    一つずつマイグレーションファイルを適用する場合、runではなくupを使います。
+    
+### その他
 
+現在のマイグレーションの状態は
+
+    $ Console/cake Migrations.miration status
+
+で確認できます。
 
 ## 参考サイト
 
