@@ -135,7 +135,7 @@ CentOS6であれば、/etc/sysconfig/httpdに
     
         $ Console/cake Migrations.migration run reset
     
-  2. 次に、現在のデータベースの状況に対応したSchemaファイルを作成します。 
+  2. 次に、現在のデータベースの状況に対応したSchemaファイルを作成します。  
     
         $ cake schema generate -f  
     
