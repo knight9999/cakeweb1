@@ -139,6 +139,7 @@ CentOS6であれば、/etc/sysconfig/httpdに
     
         $ cake schema generate -f  
       
+  3. hoge  
 （スキーマファイルの作り方を尋ねられたら、既存のスキーマファイルを上書きするのであればOverwriteを選択します。Snapshotでも問題ないかは未確認）  
 　オプションのｆは、モデルがないテーブルについてもスキーマを作成するかです。  
 
