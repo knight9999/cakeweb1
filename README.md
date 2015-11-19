@@ -173,7 +173,7 @@ CentOS6であれば、/etc/sysconfig/httpdに
     と尋ねられたらnと答えて下さい。これで、マイグレーションファイルが出来ました。
 
   3. マイグレーションファイルを編集してください。たとえば、テーブルを作るのであれば、
-      
+        'up' => array(
         'create_table' => array(
             'categories' => array(
                 'id' => array(
@@ -195,7 +195,8 @@ CentOS6であれば、/etc/sysconfig/httpdに
                 )
             )
         )
-    );
+        )
+
     
     となります。その他の記述法については、
     https://github.com/CakeDC/migrations/blob/master/Docs/Documentation/Migrations.md
