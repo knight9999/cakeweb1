@@ -175,27 +175,27 @@ CentOS6であれば、/etc/sysconfig/httpdに
   3. マイグレーションファイルを編集してください。たとえば、テーブルを作るのであれば、
     
         'up' => array(
-        'create_table' => array(
-            'categories' => array(
-                'id' => array(
-                'type'    =>'string',
-                'null'    => false,
-                'default' => null,
-                'length'  => 36,
-                'key'     => 'primary'
-            ),
-            'name' => array(
-                'type'    =>'string',
-                'null'    => false,
-                'default' => null
-            ),
-            'indexes' => array(
-                'PRIMARY' => array(
-                    'column' => 'id',
-                    'unique' => 1
+            'create_table' => array(
+                'categories' => array(
+                    'id' => array(
+                    'type'    =>'string',
+                    'null'    => false,
+                    'default' => null,
+                    'length'  => 36,
+                    'key'     => 'primary'
+                ),
+                'name' => array(
+                    'type'    =>'string',
+                    'null'    => false,
+                    'default' => null
+                ),
+                'indexes' => array(
+                    'PRIMARY' => array(
+                        'column' => 'id',
+                        'unique' => 1
+                    )
                 )
             )
-        )
         )
 
     
